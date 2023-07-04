@@ -13,6 +13,7 @@ import { CardActionArea, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
+import Footer from '../Footer/Footer'
 import "./AdminLogin.css";
 
 const TestReports = () => {
@@ -96,6 +97,7 @@ const TestReports = () => {
   }, []);
 
   return (
+    <div>
     <div>
       {/* header for desktop  with Logo and components Dashboard, Assessments, Test Reports, Student Reports and Admin */}
       <div className='admin-header-container'>
@@ -231,6 +233,8 @@ const TestReports = () => {
           })}
         </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };

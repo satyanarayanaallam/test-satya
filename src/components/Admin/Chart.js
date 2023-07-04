@@ -1,4 +1,8 @@
 // this component about score card design,downloading score card,sending scores to candidate through emails including cc
+import { GiHamburgerMenu } from "react-icons/gi";
+import gapi from "gapi-script";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 import React, { useRef, useState } from "react";
 import jsPDF from "jspdf";
 import emailjs from "@emailjs/browser";
@@ -6,8 +10,10 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/button";
 import { useReactToPrint } from "react-to-print";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import Footer from '../Footer/Footer'
 import "./index.css";
 
 function Chart() {
@@ -16,6 +22,7 @@ function Chart() {
   const [data, setData] = useState(location.state);
   const [mailId, setMailId] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   console.log(data);
   const COLORS = ["#111359","#afd25f"];
   // this loop about candidate's scores with respective of stream and making piechat data for designing piechart
@@ -166,7 +173,111 @@ function Chart() {
   };
 
   return (
+    <div>
     <div className="chart-container">
+      {/* header for desktop  with Logo and components Dashboard, Assessments, Test Reports, Student Reports and Admin */}
+      <div className="admin-header-container">
+        <div className="admin-header-logo-container">
+          {/* logo */}
+          <img
+            src="https://res.cloudinary.com/de5cu0mab/image/upload/v1688216997/KLoc_Square_Logo_-_400x400_ciw1ej.jpg"
+            alt="logo"
+            style={{ height: "50px", width: "70px", borderRadius: "10px" }}
+            onClick={() => navigate("/")}
+          />
+        </div>
+        <div className="admin-desktop-header-navbar-container">
+          {/* when clicking this Dashboard text, it'll navigates to dashboard route */}
+          <p
+            onClick={() => navigate("/dashboard")}
+            className="admin-desktop-header-navbar-link"
+          >
+            Dashboard
+          </p>
+          {/* when clicking this Assessments text, it'll navigates to send assessments route */}
+          <p
+            onClick={() => navigate("/sendAssessments")}
+            className="admin-desktop-header-navbar-link"
+          >
+            Assessments
+          </p>
+          {/* when clicking this Test Reports text, it'll navigates to test reports route */}
+          <p
+            onClick={() => navigate("/testReports")}
+            className="admin-desktop-header-navbar-link"
+          >
+            Test Reports
+          </p>
+          {/* when clicking this student reports text, it'll navigates to student reports route */}
+          <p
+            onClick={() => navigate("/studentReports")}
+            className="admin-desktop-header-navbar-link"
+          >
+            Student Reports
+          </p>
+          {/* when clicking this Sign Out text, it'll navigates to admin login route and again admin can access all routes */}
+          <p
+            className="admin-desktop-header-navbar-link"
+            onClick={() => navigate("/adminLogin")}
+          >
+            Admin
+          </p>
+        </div>
+        {/* nav header for mobile  with Logo and components Dashboard, Assessments, Test Reports, Student Reports and Admin */}
+        <div className="admin-mobile-header-navbar-container">
+          <Popup
+            contentStyle={{ width: '70%',backgroundColor:"white",textAlign:'center',display:'flex',flexDirection:'column',justifyContent:'content',alignItems:'center' }}
+            trigger={
+              <button className="admin-hamburger-btn">
+                <GiHamburgerMenu />
+              </button>
+            }
+            position="bottom right"
+          >
+            <ul className="admin-mobile-hamburger-menu">
+              {/* when clicking this Dashboard text, it'll navigates to dashboard route */}
+              <li
+                onClick={() => navigate("/dashboard")}
+                className="admin-header-navbar-link"
+              >
+                Dashboard
+              </li>
+              {/* when clicking this Assessments text, it'll navigates to send assessments route */}
+              <li
+                onClick={() =>
+                  navigate("/sendAssessments")
+                }
+                className="admin-header-navbar-link"
+              >
+                Assessments
+              </li>
+              {/* when clicking this Test Reports text, it'll navigates to test reports route */}
+              <li
+                onClick={() => navigate("/testReports")}
+                className="admin-header-navbar-link"
+              >
+                Test Reports
+              </li>
+              {/* when clicking this student reports text, it'll navigates to student reports route */}
+              <li
+                onClick={() =>
+                  navigate("/studentReports")
+                }
+                className="admin-header-navbar-link"
+              >
+                Student Reports
+              </li>
+              {/* when clicking this Sign Out text, it'll navigates to admin login route and again admin can access all routes */}
+              <li
+                onClick={() => navigate("/adminLogin")}
+                className="admin-header-navbar-link"
+              >
+                Admin
+              </li>
+            </ul>
+          </Popup>
+        </div>
+      </div>
       <div ref={detailsPdf} className="charts">
         <div className="details">
           <h1 style={{ fontSize: "25px", fontWeight: "bold" }}>
@@ -189,7 +300,7 @@ function Chart() {
           </p>
         </div>
         <div>
-          <PieChart width={730} height={300} className="piechart">
+          <PieChart width={250} height={300} className="piechart">
             <Pie
               data={pieData}
               color="#000000"
@@ -212,11 +323,7 @@ function Chart() {
           </PieChart>
         </div>
       </div>
-      <div
-       
-        className="button-container"
-
-      >
+      <div className="button-container">
         <button
           type="button"
           style={{
@@ -279,6 +386,8 @@ function Chart() {
           </Button>
         </Modal.Footer>
       </Modal>
+    </div>
+    <Footer />
     </div>
   );
 }

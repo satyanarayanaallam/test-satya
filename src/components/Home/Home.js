@@ -3,12 +3,14 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { useNavigate } from "react-router-dom";
+import Footer from '../Footer/Footer'
 import "./index.css";
 
 function Home() {
   const navigate = useNavigate();
   return (
-    <>
+    <div >
+      <div className="home-container">
       <div className='headerContainer'>
         <div className='headerLogoContainer'>
           <img
@@ -69,12 +71,14 @@ function Home() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "300px",
+          marginTop:'200px'
         }}
       >
         KLOC HIREME
       </div>
-    </>
+      </div>
+      <Footer />
+    </div>
   );
 }
 

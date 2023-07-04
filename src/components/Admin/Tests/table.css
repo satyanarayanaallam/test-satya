@@ -1,3 +1,10 @@
+.test-footer-container{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  
+}
+
 .test-table {
   margin-top: 0px;
   margin-left: 50px;
@@ -108,5 +115,5 @@ th {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 0px;
 }

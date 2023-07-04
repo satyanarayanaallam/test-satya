@@ -6,6 +6,7 @@ import 'reactjs-popup/dist/index.css';
 import Cookies from "js-cookie";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import Footer from '../Footer/Footer'
 import './AdminLogin.css'
 // scopes variable is a google api to get access of google spreadsheets
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
@@ -914,7 +915,7 @@ useEffect(()=>{
 
   return (
     <div>
-      <div>
+      <div className="admin-login-container">
         <p>
           {isSignedIn ? (
             // if admin has signedIn, the below code will render
@@ -922,7 +923,7 @@ useEffect(()=>{
             {/* header for desktop  with Logo and components Dashboard, Assessments, Test Reports, Student Reports and Sign Out */}
               <div className="admin-header-logo-container">
                     {/* logo */}
-                <img src="https://res.cloudinary.com/de5cu0mab/image/upload/v1688216997/KLoc_Square_Logo_-_400x400_ciw1ej.jpg" alt="logo" style={{height:'50px', width:'70px', borderRadius:'10px'}} onClick={()=>navigate('/')}/>
+                <img src="https://res.cloudinary.com/de5cu0mab/image/upload/v1688216997/KLoc_Square_Logo_-_400x400_ciw1ej.jpg" alt="logo" style={{height:'70px', width:'70px', borderRadius:'35px',padding:'8px'}} onClick={()=>navigate('/')}/>
               </div>
               <div className="admin-desktop-header-navbar-container">
                   {/* when clicking this Dashboard text, it'll navigates to dashboard route */}
@@ -970,6 +971,7 @@ useEffect(()=>{
           )}
         </p>
       </div>
+      <Footer />
     </div>
   );
 };

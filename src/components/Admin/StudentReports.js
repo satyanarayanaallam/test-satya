@@ -42,7 +42,6 @@ function StudentReports() {
       width: 100,
       headerClassName: "table-header",
       cellClassName: "table-cell",
-      sortable: false,
     },
     {
       field: "Name",
@@ -322,7 +321,7 @@ function StudentReports() {
         <h1 style={{ marginBottom: "15px", textAlign: "center" }}>
           Student Data
         </h1>
-        <div className='input-label-container text-center'>
+        <div className='input-label-container'>
           <label htmlFor='search'>Search by Student Email :</label>
           <input
             id='search'
@@ -331,7 +330,6 @@ function StudentReports() {
             onChange={handleSearch}
             onKeyDown={handleKeyDown}
             style={{
-              marginBottom: "20px",
               marginLeft: "25px",
             }}
             className='input-search input'

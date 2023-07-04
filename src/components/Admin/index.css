@@ -140,116 +140,71 @@
 .chart-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding-top: 50px;
-  margin-left: -20px;
+  min-height: 100vh;
+  max-height: auto;
 }
 .charts{
   display: flex;
-  padding:20px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
   border-radius: 16px;
-  width:800px;
+  margin-top: 30px;
+  padding: 20px;
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 30px;
+  text-align: center;
 }
 
 .button-container{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:auto;
   margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 30px;
 }
-@media screen and (width:1024px){
-  .chart-container{
-    margin-left: 50px;
-  }
-}
-@media screen and (max-width:930px){
-  .chart-container{
-    margin-top: 30px;
-  }
-
+@media screen and (max-width:920px){
   .charts{
     display: flex;
     flex-direction: column;
-    width:550px;
     justify-content: center;
     align-items: center;
+    width:400px;
   }
   .details{
-    text-align: center;
-    width:400px;
-    font-size: 20px;
+    font-size: 24px;
+    margin-right: 0px;
   }
 }
 @media screen and (max-width:620px){
   .charts{
-    width:400px;
+    width:350px;
   }
 }
-
-
-@media screen and (max-width:540px) {
-  .chart-container{
-   padding-left:170px;
-  margin-top: 60px;
-  
-  }
-  .charts{
-    width: 450px;
-    margin-right: 20px;
-  }
-}
-@media screen and (max-width:470px){
+@media screen and (max-width:400px) {
   .charts{
     width:300px;
   }
   .details{
-    font-size: 18px;
+    font-size: 20px;
   }
 }
-  
-@media  screen and (max-width:415px) {
-  .chart-container{
-    padding-left: 250px;
-    margin-top: 80px;
-  }
-  .charts{
-    width: 400px;
-    margin-left: 60px;
-  }
-   .button-container{
-    display: flex;
-    align-items: center;
-    justify-self:center;
-    
-  }
-}
-@media  screen and (max-width:392px) {
-  .button-container{
 
-    /* margin-right: 100px; */
-    margin-left: -20px;
-    /* margin-right:2px; */
-  }
-  
-}
 @media  screen and (max-width:280px) {
-  .chart-container{
-    padding-left: 340px;
-    margin-top: 80px;
-  }
   .charts{
-    margin-right: 40px;
+    width:250px;
   }
-  .button-container{
-    margin-left:-100px;
+  .details{
+    font-size: 16px;
   }
-}
+} 
 @media screen and (max-width:768px){
   .send{
     width:100px;
@@ -490,18 +445,7 @@
   padding:5px;
 }
 
-.custom-input-field{
-  width:25%;
-  height:40px;
-  padding:5px;
-}
 
-input[type="date"]{
-  width:25%;
-  height:40px;
-  color:rgb(110, 109, 109);
-  padding:5px;
-}
 
 .send-assessment-button{
   /* background-color:#3a7cdf; */
@@ -531,27 +475,39 @@ input[type="date"]{
   align-items:center;
   padding-bottom:20px;
 }
-
-@media (max-width:768px){
+.label-assessment{
+  font-size: 20px;
+  font-weight: bold;
+}
 .custom-input-field{
-  width:30%;
+  width:200px;
+  height:40px;
+  padding:5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 input[type="date"]{
-  width:30%;
+  width:200px;
+  height:40px;
+  color:rgb(110, 109, 109);
+  padding:5px;
 }
-}
-
-
-@media (max-width:600px){
+@media screen and (max-width:600px){
   .custom-input-field{
-    width:40%;
+    width:150px;
+    margin-left: 20px;
   }
-
   input[type="date"]{
-    width:40%;
+    width:150px;
   }
 }
+@media screen and (max-width:300px){
+  .custom-input-field{
+    margin-right: 0px;
+  }
+}
+
 
 @media (max-width:600px){
   .send-assessment-button{
@@ -580,9 +536,6 @@ input[type="date"]{
     align-items:center;
   }
 
-  .custom-input-field, input[type="date"]{
-    width:80%;
-  }
 
   .send-assessment-button{
     width:45%;
@@ -611,7 +564,7 @@ input[type="date"]{
 .send-assessment-main-container{
   background-color: rgb(231, 230, 230);
   width:100%;
-  height:100%;
+  min-height:100vh;
   padding:0px;
   padding-right:0px;
   padding-left:0px;
@@ -657,12 +610,31 @@ input[type="date"]{
   justify-content:flex-start;
   align-items:center;
 }
+.test-assessment-heading-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.test-heading{
+font-size: 25px;
+}
+@media screen and (max-width:768px){
+  .test-heading{
+    margin-left: 30px;
+  }
+}
+.test-heading1{
+  font-size: 25px;
+  margin-right:-80px;
+  }
 
 .assessmentContainerInput {
   background: #fcf5fd;
   border-radius: 2px;
   border: none;
   margin: 5px;
+  padding-left: 20px;
   padding-bottom: 8px;
   width:100px;
 }
@@ -864,6 +836,13 @@ th {
   justify-content: center;
   align-items: center;
 }
+.input-label-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
 @media (max-width: 600px) {
   .input-label-container {
     display: flex;
@@ -926,4 +905,16 @@ th {
   border-radius: 5px;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+/* EachCandidateInputField component css */
+.label-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.horizontal-line{
+  width:80%;
+  background-color: black;
+  height:2px;
 }
